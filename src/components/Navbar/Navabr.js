@@ -26,6 +26,8 @@ const Navabr = ({showOnly,setShowOnly}) => {
   const[editMeetData,setEditMeetData]=useState(null)
   const dispatch=useDispatch()
 
+console.log("user",user)
+
 //SORT ARRAY ACCORDING TO STATUS
 useEffect(()=>{
 let oldMeetArray
@@ -72,7 +74,7 @@ useEffect(()=>{
   let expiredMeet=[]
 if(!user){return}
 if(!user.userData){return}
-if(user?.userData?.meeting.length===0){return;}
+if(user?.userData?.meeting.length===0){setTodayMeeting(todayMeet);setOtherdayMeeting(otherDayMeet);setExpiredMeeting(expiredMeet);return;}
 meetArray.map((meet)=>{
 if(new Date(meet.date).toDateString().slice(4)===new Date().toDateString().slice(4)){
   todayMeet.push(meet)
@@ -82,6 +84,7 @@ else if(new Date(meet.date)>new Date()){otherDayMeet.push(meet)}
 })
 todayMeet.sort(latest)
 todayMeet.sort(latestTime)
+otherDayMeet.sort(latestTime)
 otherDayMeet.sort(latest)
 expiredMeet.sort(latest)
 setTodayMeeting(todayMeet)
@@ -98,7 +101,8 @@ const getMeetingArray=(meet)=>{
   let expiredMeet=[]
 if(!user){return}
 if(!user.userData){return}
-if(user?.userData?.meeting.length===0){return;}
+if(user?.userData?.meeting.length===0){setTodayMeeting(todayMeet);setOtherdayMeeting(otherDayMeet);setExpiredMeeting(expiredMeet);return;}
+
 meetArray.map((meet)=>{
 if(new Date(meet.date).toDateString().slice(4)===new Date().toDateString().slice(4)){
   todayMeet.push(meet)
@@ -108,6 +112,8 @@ else if(new Date(meet.date)>new Date()){otherDayMeet.push(meet)}
 })
 todayMeet.sort(latest)
 todayMeet.sort(latestTime)
+
+otherDayMeet.sort(latestTime)
 otherDayMeet.sort(latest)
 expiredMeet.sort(latest)
 setTodayMeeting(todayMeet)
@@ -121,9 +127,11 @@ setExpiredMeeting(expiredMeet)
 const handleDeleteMeet=(id)=>{
 
   const meetArray=user?.userData?.meeting
+  console.log("meetArray",meetArray)
   const newMeetArr=meetArray.filter((meet)=>{
     return meet.uid!==id
   })
+  console.log("newMeetArr",newMeetArr)
   const newUserData={...user.userData,meeting:newMeetArr}
   dispatch(setUserData(newUserData))
 updateInFirebase(newMeetArr)

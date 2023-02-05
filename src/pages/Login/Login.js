@@ -55,6 +55,7 @@ const user=useSelector((state)=>state.user.user)
       .catch((error) => {
         const errorMessage = error.message;
         alert(errorMessage);
+        setLoading(false)
       });
   };
 
