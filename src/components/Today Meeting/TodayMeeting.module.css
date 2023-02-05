@@ -1,0 +1,108 @@
+.outerCont{
+    margin-left: 2rem;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    width: 65%;
+    height: max-content;
+    background-color: transparent;
+    margin-bottom: 2rem;
+}
+.noMeetingCont{
+    width: 100%;
+    background-color: white;
+    /* margin: auto; */
+    padding:1.5rem;
+    display:flex;
+    align-items: center;
+    flex-direction: row;
+    flex-wrap: wrap;
+    gap: 1rem;
+    border-radius: 11px;
+    box-shadow: 0 4px 4px rgb(0 0 0 / 50%);
+    position: relative;
+    padding-left: 1rem;
+    margin-bottom: 2rem;  
+}
+.noMeetText{
+    margin: auto;
+    text-align: center;
+}
+.meetingCont{
+    width: 100%;
+    background-color: white;
+    /* margin: auto; */
+    padding:1.5rem;
+    display: flex;
+    align-items: center;
+    flex-direction: row;
+    flex-wrap: wrap;
+    gap: 1rem;
+    border-radius: 11px;
+    box-shadow: 0 4px 4px rgb(0 0 0 / 50%);
+    position: relative;
+    padding-left: 1rem;
+    margin-bottom: 2rem;
+}
+.togglerLine{
+    /* background-color: green; */
+    height: 100%;
+    width: 7px;
+    position: absolute;
+    left: 0;
+    border-radius: 10px;
+}
+.timeDurationCont,.dateNStatus,.withCont{
+    display: flex;
+    flex-direction: column;
+    margin: auto;
+}
+.time,.date,.fullName{
+    font-weight: 700;
+    font-size: 1.3rem;
+    margin: 0;
+}
+.duration,.withText{
+    color: grey;
+    margin: 0;
+}
+
+.fullName{
+    font-weight: 700;
+    font-size: 1.3rem;
+    margin: 0;  
+}
+.dot{
+    font-size: 1.5rem;
+}
+.status{
+    margin: 0;
+    font-weight: 700;
+    text-transform: capitalize;
+}
+
+.userIconCont{
+display: flex;
+align-items: center;
+margin: auto;
+}
+
+.infoIcon{
+    margin-right: 2rem;
+    font-size: 1.5rem;
+    cursor: pointer;
+    color: Blue;
+
+}
+.delIcon{
+    margin-right: 2rem;
+    font-size: 1.5rem;
+    cursor: pointer;
+    color: red;
+}
+.editIcon{
+    margin-right: 2rem;
+    font-size: 1.5rem;
+    cursor: pointer;
+    color: black;
+}

@@ -1,0 +1,38 @@
+.sidebar{
+    width: 100px;
+    height: 100%;
+    position: fixed;
+    z-index: 100;
+    background-color: white;
+    top: 0;
+    left: 0;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    box-shadow: 0 4px 4px rgba(0,0,0,.25);;
+}
+.logo{
+    width: 50px;
+    margin-top: 2rem;
+    cursor: pointer;
+}
+
+.profileIcon{
+    margin-top: 2rem;
+    font-size: 2rem;
+    color: rgb(199, 195, 195);
+    cursor: not-allowed;
+}
+
+.homeIcon{
+    font-size: 2rem;
+    margin-top: 2rem;
+    cursor: pointer;
+}
+
+.logoutIcon{
+    cursor: pointer;
+    font-size: 2rem;
+    margin-top: 2rem;
+    margin-right: .45rem;
+}

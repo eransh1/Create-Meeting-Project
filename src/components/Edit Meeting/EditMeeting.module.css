@@ -1,0 +1,87 @@
+.outerCont{
+    width: 100%;
+    height: 100%;
+    z-index: 200;
+    background-color: rgba(0, 0, 0, .5);
+    position: fixed;
+    top: 0;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.innerCont{
+    width: 80%;
+    height: 80%;
+    background-color: white;
+    border-radius: 20px;
+    display: flex;
+    flex-direction: column;
+    padding: 1rem;
+    overflow-y: scroll;
+}
+.innerCont::-webkit-scrollbar {
+    display: none;
+}
+
+.closeIconCont{
+    margin-left: auto;
+}
+.closeIcon{
+   
+    cursor: pointer;
+    color: red;
+    font-size: 2rem;
+}
+
+.title{
+    text-align: center;
+    font-size: 1.5rem;
+    font-weight: 700;
+}
+
+.form{
+    width: 80%;
+    padding: 1rem;
+    display: flex;
+    flex-direction: column;
+    margin: auto;
+}
+.statusInputText{
+    margin-bottom: .5rem;
+    font-size: 1.2rem;
+}
+.input{
+    padding: 1rem;
+    margin-bottom: 1.5rem;
+    font-size: 1.2rem;
+    border-radius: 11px;
+    border: 1px solid black;
+}
+
+.dNTCont{
+    display: flex;
+    gap: 1rem;
+    align-items: center;
+    flex-direction: row;
+    flex-wrap: wrap;
+    font-size: 1.2rem;
+    font-weight: 600;
+    margin-bottom: 1rem;
+}
+.label{
+    margin-right: .5rem;
+}
+
+.btn{
+    width: 110px;
+    padding: 1rem;
+    margin: auto;
+    margin-top: 2rem;
+    border: 2px solid black;
+    background-color: transparent;
+    border-radius: 7px;
+    font-size: 1.1rem;
+    font-family: 600;
+
+}

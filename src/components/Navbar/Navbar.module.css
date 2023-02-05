@@ -1,0 +1,153 @@
+.navbar{
+    width: 93.48%;
+   height: 360px;
+    background-color: rgb(2, 2, 58);
+    position: fixed;
+    left: 100px;
+    top: 0;
+    border-bottom-left-radius: 125px;
+    font-family: "Poppins";
+}
+.innerCont{
+display: flex;
+flex-direction: column;
+max-height: 100vh;
+overflow-y: scroll;
+}
+.infoCont{
+    display: flex;
+    align-items: center;
+}
+
+.heading{
+    color: white;
+    margin-left: 2rem;
+    margin-top: 2rem;
+    width: fit-content;    
+}
+.userInfoCont{
+  margin-left: auto;  
+  display: flex;
+  align-items: center;
+  margin-right: 2rem;
+}
+.userImage{
+    width: 50px;
+    height: 50px;
+    border-radius: 50%;
+    margin-right: 1rem;
+}
+
+.userName{
+    color: white;
+    font-size: 1.2rem;
+    margin: 0;
+    text-transform: capitalize;
+}
+
+.outerCont{
+    display: flex;
+    flex-direction: row;
+    flex-wrap: wrap;
+    align-items: center;
+    width: 70%;
+
+}
+
+.showToggler{
+    background-color:rgb(3, 3, 79) ;
+    width: 72%;
+    height: fit-content;
+    padding: 1.5rem;
+    border-radius: 25px;
+    display: flex;
+    align-items: center;
+    flex-direction: row;
+    flex-wrap: wrap;
+    margin-left: 2rem;
+    margin-top: 3rem;
+    gap: 1rem;
+
+}
+.icon1{
+margin: auto;
+color: #03C988;
+margin-bottom: .25rem;
+}
+.icon2{
+    color: orange;
+}
+.icon3{
+    color: red;
+    margin-bottom: .15rem;
+}
+.showText{
+    color: #dadada;
+    width: fit-content;
+    margin-right: 1rem;
+    margin: auto;
+}
+
+.showButton{
+    padding: .25rem;
+    margin: auto;
+    background: transparent;
+    border: 1px solid #dadada;
+    /* margin-right: 1rem; */
+    color: #dadada;
+    border-radius: 11px;
+    width: 120px;
+    cursor: pointer;
+    /* margin-bottom: 1rem; */
+}
+.showButtonActive{
+    padding: .25rem;
+    margin: auto;
+    /* margin-bottom: 1rem; */
+    background: transparent;
+    border: 3px solid white;
+    /* margin-right: 1rem; */
+    color: white;
+    border-radius: 11px;
+    width: 120px;
+    cursor: pointer;
+    font-family: 700;
+}
+.addMeetIcon{
+    margin-right: .5rem;
+}
+.addMeetingBtn{
+    background-color: #03C988;
+    color: #dadada;
+    padding: 1rem;
+    border-radius: 11px;
+    font-family: "Poppins";
+    font-size: 1.1rem;
+    border: 3px solid rgb(3, 3, 79);
+    margin-top: 3rem;
+    margin-left: 3rem;
+
+}
+
+.todayText{
+    margin-left: 2rem;
+    color: green;
+    margin-top: 2rem;
+    font-size: 1.5rem;
+    margin-bottom: 2rem;
+}
+
+
+@media(max-width:920px){
+  .userInfoCont{
+    margin-left:auto;
+    flex-direction: column;
+    margin-right: 3rem;
+  }  
+}
+
+@media(max-width:700px){
+    .userInfoCont{
+        margin-left: 2.5rem;
+    } 
+}

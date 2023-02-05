@@ -1,0 +1,98 @@
+.outerCont{
+    /* position: absolute; */
+    position: fixed;
+    right: 0;
+    top: 6rem;
+    width: 400px;
+    height: 87vh;
+    background-color: white;
+    z-index: 150;
+    border-top-left-radius: 70px;
+    box-shadow: 0 4px 4px rgb(0 0 0 / 50%);
+    transition: all .8s ease;
+    transform: translate(800px);
+    display: flex;
+    flex-direction: column;
+}
+.closeIcon{
+    color: red;
+    font-size: 2rem;
+    margin-left: auto;
+    margin-top: 1rem;
+    margin-right: 1.5rem;
+    cursor: pointer;
+}
+
+.InnerCont{
+    margin-top: 1.5rem;
+    width: 95%;
+    height: 100%;
+    /* overflow-y: scroll; */
+    display: flex;
+    flex-direction: column;
+    
+}
+.presentDate{
+    text-align: center;
+    padding-bottom: 1rem;
+    border-bottom: 1px solid grey;
+}
+.titleCont,.statusCont,.timeCont{
+    display: flex;
+    align-items: center;
+   margin: 1rem auto;
+}
+.head{
+    margin: 0;
+    margin-right: .5rem; 
+}
+.title{
+    text-align: center;
+    margin: 0;
+    font-weight: 400;
+    text-transform: capitalize;
+
+}
+.statusHead{
+    margin: 0;
+    margin-right: .5rem;
+    font-weight: 700;
+    font-size: 1.2rem;
+}
+.status{
+    margin: 0;
+    text-align: center;
+    font-size: 1.2rem;
+    text-transform: capitalize;
+}
+.desCont{
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+   margin: 1rem auto;  
+}
+.desHead{
+    margin: 0;
+    margin-right: .5rem;
+    font-weight: 700;
+    font-size: 1.3rem;  
+    margin-bottom: .5rem;
+}
+.description{
+  margin: 0;
+    text-align: center;
+    font-size: 1.2rem;
+    word-break: break-all;
+    font-weight: 500;
+    text-transform: capitalize;
+}
+.timeHead{
+    margin-right: .5rem;
+    font-weight: 700;
+    font-size: 1.2rem;
+}
+.time{
+    text-align: center;
+    font-size: 1.2rem;
+    font-weight: 500;
+}
