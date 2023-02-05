@@ -4,6 +4,16 @@ import {AiFillCloseCircle} from "react-icons/ai"
 import {RxDotFilled} from "react-icons/rx"
 
 const InfoCont = ({infoData,setInfoData}) => {
+
+//CONVERT HR FORMAT TO AM/PM
+
+function formatTime(timeString) {
+  if(!timeString){return}
+  const [hourString, minute] = timeString.split(":");
+  const hour = +hourString % 24;
+  return (hour % 12 || 12) + ":" + minute + (hour < 12 ? "AM" : "PM");
+}
+
   return (
     <>
       <section style={{transform:infoData?"translate(0px)":""}} className={styles.outerCont}>
@@ -25,7 +35,7 @@ const InfoCont = ({infoData,setInfoData}) => {
 
 <div className={styles.timeCont}>
 <p className={styles.timeHead}>Time:</p>
-<p className={styles.time}><span>{infoData?.from}</span>-<span>{infoData?.to}</span>   </p>
+<p className={styles.time}><span>{formatTime(infoData?.from)}</span> - <span>{formatTime(infoData?.to)}</span>   </p>
 </div>
 
 </div>

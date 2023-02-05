@@ -19,7 +19,7 @@ const Dashboard = () => {
     const[showOnly,setShowOnly]=useState("All")
    
     const navigate=useNavigate()
-console.log("user",user)
+
 
 // CHECK FOR USER DOC DATA
 useEffect(()=>{
@@ -49,15 +49,15 @@ if(user.user&&!user.userData){setNoUserData(true);return}
 //LOGOUT FUNCTION
 const logoutt=()=>{
     signOut(auth)
-     .then(() => {dispatch(logout());dispatch(remove());})
+     .then(() => {dispatch(logout());dispatch(remove());dispatch(setUserData(null))})
       .then(() => {toast.success("Sucessfully logged out");navigate("/");})
 }
-{/* <button onClick={logoutt}>LOgout</button> */}
+
   return (
     <>
     <ToastContainer/>
     {noUserData&&<UserDocCreate setNoUserData={setNoUserData}/>}
-    {/* <Navabr showOnly={showOnly} setShowOnly={setShowOnly}/> */}
+    <Navabr showOnly={showOnly} setShowOnly={setShowOnly}/>
     <Sidebar handleClick={logoutt}/>
     
    </>

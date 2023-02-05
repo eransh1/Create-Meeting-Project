@@ -61,6 +61,7 @@
     font-weight: 700;
     font-size: 1.3rem;
     margin: 0;
+    text-transform: capitalize;
 }
 .duration,.withText{
     color: grey;

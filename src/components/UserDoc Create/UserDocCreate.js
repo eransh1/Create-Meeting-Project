@@ -20,8 +20,7 @@ useEffect(()=>{
 
 const createUserDoc=async(e)=>{
 e.preventDefault()
-
-toast("Processing Your Request")
+toast.success("Thank You")
 try {
     await setDoc(
         doc(db, "Users", user?.user?.email),{

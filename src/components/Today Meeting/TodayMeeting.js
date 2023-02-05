@@ -12,14 +12,27 @@ const TodayMeeting = ({meetArray,setInfoData,setEditMeetData,handleDeleteMeet}) 
 function timeDiff(a,b){
   const [aHourString, aMinute] = a.split(":");
   const [bHourString, bMinute] = b.split(":");
-  if(aHourString===bHourString){return Number(bMinute)-Number(aMinute)+" minutes"}
+  if(aHourString===bHourString&&aMinute===bMinute){
+    return ""
+  }
+  else if(aHourString===bHourString){return Number(bMinute)-Number(aMinute)+" minutes"}
   else if(aHourString!==bHourString&&aMinute===bMinute){return  Number(bHourString)-Number(aHourString)+" hour"}
   else if(aHourString!==bHourString&&aMinute!==bMinute){
-    return  Number(bHourString)-Number(aHourString)+" hour " +Number(bMinute)-Number(aMinute)+" minutes"
+    return  (Number(bHourString)-Number(aHourString))+" hour " +(Number(bMinute)-Number(aMinute))+" minutes"
+  }
+  else if(aHourString===bHourString&&aMinute===bMinute){
+    return ""
   }
 }
 
+//CONVERT HR FORMAT TO AM/PM
 
+function formatTime(timeString) {
+  if(!timeString){return}
+  const [hourString, minute] = timeString.split(":");
+  const hour = +hourString % 24;
+  return (hour % 12 || 12) + ":" + minute + (hour < 12 ? "AM" : "PM");
+}
 
   return (
    <>
@@ -33,7 +46,7 @@ function timeDiff(a,b){
         <div className={styles.meetingCont}>
             <div style={{backgroundColor:meet.status==="confirmed"?"green":meet.status==="pending"?"orange":meet.status==="rejected"?"red":""}} className={styles.togglerLine}></div>
             <div className={styles.timeDurationCont}>
-               <h3 className={styles.time}>{meet.from}</h3> 
+               <h3 className={styles.time}>{formatTime(meet.from)}</h3> 
                <p className={styles.duration}>{timeDiff(meet.from,meet.to)}</p>
             </div>
             <div className={styles.withCont}>
@@ -48,7 +61,7 @@ function timeDiff(a,b){
             <div className={styles.userIconCont}>
             <AiFillInfoCircle onClick={()=>{setInfoData(meet)}} className={styles.infoIcon}/>
             <AiFillDelete onClick={()=>handleDeleteMeet(meet.uid)} className={styles.delIcon}/>
-            <MdModeEditOutline onClick={()=>setEditMeetData(meet)} className={styles.editIcon}/>
+            <MdModeEditOutline onClick={()=>{setEditMeetData(meet);setInfoData(null)}} className={styles.editIcon}/>
             </div>
         </div>
         </>

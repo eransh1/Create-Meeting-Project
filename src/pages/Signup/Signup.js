@@ -105,6 +105,7 @@ function Signup() {
                 type="email"
                 placeholder="Your E-Mail"
                 required
+                autocomplete="off"
               />
               <input
               className={styles.input}
@@ -113,6 +114,7 @@ function Signup() {
                 type="password"
                 placeholder="Enter a password"
                 required
+                autocomplete="off"
               />
                <input
                className={styles.input}
@@ -121,6 +123,7 @@ function Signup() {
                 type="password"
                 placeholder="Confirm Password"
                 required
+                autocomplete="off"
               />
 
 

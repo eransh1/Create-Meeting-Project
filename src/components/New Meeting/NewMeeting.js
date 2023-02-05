@@ -22,13 +22,16 @@ setNewMeetData((prev)=>{return {...prev,[name]:value}})
 
 const handleFormSubmit=(e)=>{
 e.preventDefault()
+const [aHourString, aMinute] = newMeetData.from.split(":");
+  const [bHourString, bMinute] = newMeetData.to.split(":");
+  if(!(aHourString<=bHourString)){toast.error("Time cannot be negtive");return}
 toast("Processing")
 let userData=user.userData
 let meetingData
 if(user.userData.meeting.length>0){meetingData=user.userData.meeting}
 else{meetingData=[]}
 const newMeetingData=[...meetingData,{...newMeetData,uid:new Date().getTime()}]
-console.log(newMeetingData)
+
 const newUserData={...userData,meeting:newMeetingData}
 dispatch(setUserData(newUserData))
 updateInFirebase(newMeetingData)

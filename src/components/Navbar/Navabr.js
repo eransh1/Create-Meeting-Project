@@ -21,6 +21,7 @@ const Navabr = ({showOnly,setShowOnly}) => {
   const user = useSelector(state=>state.user);
   const [todayMeeting,setTodayMeeting]=useState([])
   const [otherdayMeeting,setOtherdayMeeting]=useState([])
+  const[expiredMeeting,setExpiredMeeting]=useState([])
   const [infoData,setInfoData]=useState(null)
   const[editMeetData,setEditMeetData]=useState(null)
   const dispatch=useDispatch()
@@ -68,6 +69,7 @@ useEffect(()=>{
   let meetArray=user?.userData?.meeting
   let todayMeet=[]
   let otherDayMeet=[]
+  let expiredMeet=[]
 if(!user){return}
 if(!user.userData){return}
 if(user?.userData?.meeting.length===0){return;}
@@ -75,13 +77,16 @@ meetArray.map((meet)=>{
 if(new Date(meet.date).toDateString().slice(4)===new Date().toDateString().slice(4)){
   todayMeet.push(meet)
 }
-else{otherDayMeet.push(meet)}
+else if(new Date(meet.date)<new Date()){expiredMeet.push(meet)}
+else if(new Date(meet.date)>new Date()){otherDayMeet.push(meet)}
 })
 todayMeet.sort(latest)
 todayMeet.sort(latestTime)
 otherDayMeet.sort(latest)
+expiredMeet.sort(latest)
 setTodayMeeting(todayMeet)
 setOtherdayMeeting(otherDayMeet)
+setExpiredMeeting(expiredMeet)
 
 },[user])
 
@@ -90,6 +95,7 @@ const getMeetingArray=(meet)=>{
   let meetArray=meet
   let todayMeet=[]
   let otherDayMeet=[]
+  let expiredMeet=[]
 if(!user){return}
 if(!user.userData){return}
 if(user?.userData?.meeting.length===0){return;}
@@ -97,13 +103,16 @@ meetArray.map((meet)=>{
 if(new Date(meet.date).toDateString().slice(4)===new Date().toDateString().slice(4)){
   todayMeet.push(meet)
 }
-else{otherDayMeet.push(meet)}
+else if(new Date(meet.date)<new Date()){expiredMeet.push(meet)}
+else if(new Date(meet.date)>new Date()){otherDayMeet.push(meet)}
 })
 todayMeet.sort(latest)
 todayMeet.sort(latestTime)
 otherDayMeet.sort(latest)
+expiredMeet.sort(latest)
 setTodayMeeting(todayMeet)
 setOtherdayMeeting(otherDayMeet)
+setExpiredMeeting(expiredMeet)
 }
 
 
@@ -159,10 +168,14 @@ const updateInFirebase=async(data)=>{
             </div>
             <button onClick={()=>setNewMeeting(true)} className={styles.addMeetingBtn}> <span><AiFillFileAdd className={styles.addMeetIcon}/></span>Add Meeting</button>
             </div>
-            <h1 className={styles.todayText}>Today</h1>
+            {todayMeeting.length!==0&&<><h1 className={styles.todayText}>Today</h1>
             <TodayMeeting handleDeleteMeet={handleDeleteMeet} setEditMeetData={setEditMeetData} meetArray={todayMeeting} setInfoData={setInfoData}/>
-            <h1 className={styles.todayText}>Upcoming</h1>
+            </>}
+            <h1 style={{color:"#0081C9"}} className={styles.todayText}>Upcoming</h1>
             <TodayMeeting handleDeleteMeet={handleDeleteMeet} setInfoData={setInfoData} setEditMeetData={setEditMeetData} meetArray={otherdayMeeting}/>
+            {expiredMeeting.length!==0&&<><h1 style={{color:"red"}} className={styles.todayText}>Expired</h1>
+            <TodayMeeting handleDeleteMeet={handleDeleteMeet} setInfoData={setInfoData} setEditMeetData={setEditMeetData} meetArray={expiredMeeting}/>
+            </>}
             </section>
         </section>
     </>
